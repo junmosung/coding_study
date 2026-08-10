@@ -93,5 +93,16 @@ After push and remote-SHA verification, inspect the primary worktree again.
 - Verify and report the primary worktree status. It should remain clean when changes were authored directly in the isolated worktree or after authorized current-task duplicate cleanup.
 - Report unresolved findings by severity, test results, commit hashes, and PR URL.
 - PR approval or merge on GitHub does not automatically resume a completed agent turn. Unless the user explicitly requested merge monitoring, state that the local target branch remains at its pre-merge base and needs a later fetch plus explicit `--ff-only` update.
-- If the user explicitly requested monitoring through merge, keep the workflow active. After confirming the merge, update a clean primary target only when divergence is expected, use fetch plus explicit fast-forward, and verify `<target>...origin/<target>` is `0 0`.
 - Keep the worktree until the user asks to clean it up or the workflow explicitly includes approved cleanup.
+
+## 10. Monitor through merge when requested
+
+Only run this phase when the user explicitly asks to monitor through merge.
+
+- Keep the workflow active and record the PR number, base/head refs, and initial head SHA.
+- Poll PR state, review decision, and checks at a reasonable interval. Do not approve or merge the PR on the user's behalf unless that action was separately requested.
+- If the head SHA changes, inspect the new commits and rerun all validations affected by the changed diff before relying on the previous scorecard.
+- If the PR closes without merging, do not update the local target; report the closed state and stop monitoring.
+- After merge, fetch the remote and verify the merge commit, primary-worktree status, and target divergence.
+- Update the primary target only when it is clean and the relationship is the expected fast-forward. Use explicit `--ff-only`; never hide unrelated work with stash, reset, clean, or a broad restore.
+- Verify `<target>...origin/<target>` is `0 0`, the primary worktree is clean, and no recorded current-task duplicate remains. If a safety gate fails, preserve the work and report the exact blocker.
