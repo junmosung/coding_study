@@ -1,0 +1,52 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Kotlin ###
+.kotlin
+.gradle/
+build/
+*.jar
+
+### Local tools ###
+.codex/
+local.properties
+
+### Secrets and local environment ###
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+credentials.json
+secrets.*
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
