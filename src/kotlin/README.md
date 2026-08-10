@@ -10,6 +10,7 @@ Kotlin을 주 언어로 익숙하게 사용하기 위한 학습 자료입니다.
 | [practice_by_agent](./practice_by_agent/README.md) | 기본·심화 문법 + JVM 동시성 ([문법 맵](./practice_by_agent/GRAMMAR_MAP.md)) |
 | [practice_by_codex](./practice_by_codex/README.md) | 기본 문법과 실전 문법 중심의 단계별 연습 |
 | [docs](./docs/README.md) | Kotlin 고유 문법과 관용구를 주제별로 정리한 문서 |
+| [jvm_memory_learning](./jvm_memory_learning/README.md) | Stack·Heap·GC·thread·coroutine을 Kotlin 코드로 이해하는 JVM 메모리 학습 |
 | [KOTLIN_CHEATSHEET.md](./KOTLIN_CHEATSHEET.md) | 컬렉션 고차 함수와 Sequence 참고 자료 |
 
 각 문제 파일의 `TODO`를 직접 구현하고 `main`의 출력이나 `check(...)`로 결과를 검증합니다.
