@@ -31,6 +31,8 @@ Kotlin을 주 언어로 사용할 때 자주 판단해야 하는 문법과 관�
 
 컬렉션 함수별 빠른 검색은 [KOTLIN_CHEATSHEET.md](../KOTLIN_CHEATSHEET.md)를 함께 참고합니다.
 
+문법을 JVM Stack·Heap·GC·스레드 메모리와 연결해 공부하려면 별도 트랙인 [Kotlin 문법으로 이해하는 JVM 메모리](../jvm_memory_learning/README.md)를 이어서 학습합니다. 기존 문법 문제와 독립되어 있어 순서대로 병행할 수 있습니다.
+
 ## 권장 사용법
 
 1. 예제를 직접 입력하고 반환 타입을 예상합니다.
