@@ -2,7 +2,7 @@
 
 코루틴은 스레드를 대체하는 또 하나의 스레드가 아니라, 실행을 중단하고 나중에 이어 갈 수 있는 작업 단위입니다. 코루틴의 생명주기는 `Job`이 관리하고 실제 실행 스레드는 `CoroutineDispatcher`가 결정합니다.
 
-먼저 [코루틴 기초](./09_COROUTINES.md)와 [JVM 스레드와 동시성](./12_THREADS_CONCURRENCY.md)의 차이를 이해하고 읽습니다.
+먼저 [코루틴 기초](./09_COROUTINES.md)에서 `suspend` / `runBlocking` / `delay` vs `Thread.sleep`을 익힌 뒤, [JVM 스레드와 동시성](./12_THREADS_CONCURRENCY.md)과 비교해 읽습니다.
 
 ## 코루틴과 스레드는 1:1이 아니다
 

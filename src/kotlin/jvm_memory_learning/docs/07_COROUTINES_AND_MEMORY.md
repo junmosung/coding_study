@@ -1,5 +1,7 @@
 # 07. 코루틴과 JVM 메모리 실전
 
+> 언어 수준의 `suspend` / `runBlocking` / `delay` vs `Thread.sleep`은 먼저 [코루틴 기초](../../docs/09_COROUTINES.md)를 읽은 뒤 이 문서로 오세요.
+
 코루틴은 JVM thread보다 가볍지만 메모리를 사용하지 않는 것은 아닙니다. 실행 중에는 dispatcher가 선택한 thread의 Stack에서 코드가 동작하고, 중단 후 다시 시작하는 데 필요한 상태는 compiler가 만든 continuation과 coroutine context, `Job` 같은 Heap 객체로 표현될 수 있습니다.
 
 코루틴을 이해할 때는 다음 두 상태를 나누어 봅니다.
