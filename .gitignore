@@ -14,7 +14,10 @@ build/
 ### Local tools ###
 .codex/
 .claude/
+.agents/
+.calude/
 .cladue/
+CLAUDE.local.md
 local.properties
 
 ### Secrets and local environment ###

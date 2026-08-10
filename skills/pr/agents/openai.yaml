@@ -1,0 +1,4 @@
+interface:
+  display_name: "Safe Pull Request"
+  short_description: "Worktree-based review, commit, push, and PR gate"
+  default_prompt: "Use $pr to validate the current changes and open a safe pull request."
