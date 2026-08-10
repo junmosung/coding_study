@@ -12,7 +12,7 @@ Kotlin을 주 언어로 사용할 때 자주 판단해야 하는 문법과 관�
 | 6 | [제네릭과 변성](./06_GENERICS_VARIANCE.md) | `in`, `out`, 타입 제약은 왜 필요한가? |
 | 7 | [확장·스코프 함수·위임](./07_EXTENSIONS_SCOPE_DELEGATION.md) | 편의 문법을 어디까지 사용해야 읽기 좋은가? |
 | 8 | [오류 처리와 Result](./08_ERRORS_RESULT.md) | nullable, 예외, Result를 각각 언제 선택하는가? |
-| 9 | [코루틴 기초](./09_COROUTINES.md) | 중단과 스레드 블로킹은 어떻게 다른가? |
+| 9 | [코루틴 기초](./09_COROUTINES.md) | `suspend`와 `runBlocking`은 무엇이고, 중단과 블로킹은 어떻게 다른가? |
 | 10 | [Java 상호 운용](./10_JAVA_INTEROP.md) | JVM 생태계와 섞일 때 무엇을 조심해야 하는가? |
 | 11 | [관용구와 스타일](./11_IDIOMS_STYLE.md) | 동작하는 코드를 Kotlin다운 코드로 어떻게 다듬는가? |
 | 12 | [JVM 스레드와 동시성](./12_THREADS_CONCURRENCY.md) | 공유 상태와 스레드 생명주기를 어떻게 안전하게 관리하는가? |
@@ -24,8 +24,9 @@ Kotlin을 주 언어로 사용할 때 자주 판단해야 하는 문법과 관�
 
 | 순서 | 문서 | 핵심 질문 | 시각 자료 |
 |---:|---|---|---|
+| 9 | [코루틴 기초](./09_COROUTINES.md) | `suspend` / `runBlocking`과 중단·블로킹 차이 | sleep vs delay, runBlocking 흐름 |
 | 12 | [JVM 스레드와 동시성](./12_THREADS_CONCURRENCY.md) | main과 worker는 어떻게 분기·합류하며 공유 상태를 어떻게 보호하는가? | main/worker 흐름, 스레드 생명주기 |
-| 13 | [코루틴 심화](./13_COROUTINES_ADVANCED.md) | 중단·재개, dispatcher, 취소와 실패 전파는 어떻게 연결되는가? | 코루틴 스레드 전환 흐름 |
+| 13 | [코루틴 심화](./13_COROUTINES_ADVANCED.md) | 중단·재개, dispatcher, 취소와 실패 전파는 어떻게 연결되는가? | 코루틴 스레드 전환 |
 
 이미지 원본은 [`assets`](./assets/)에 SVG로 관리합니다. 확대해도 선명하고, 브라우저와 GitHub의 Markdown에서 바로 확인할 수 있습니다.
 
