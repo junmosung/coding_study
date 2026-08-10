@@ -28,6 +28,10 @@ java -jar practice01.jar
 
 IDE 설정, Codex 로컬 설정, 빌드 결과, 환경 변수 파일, 키 및 인증서 파일은 `.gitignore`에서 제외합니다. 예제에는 실제 개인정보나 실제 계정 정보를 사용하지 않습니다.
 
+## 협업과 Pull Request
+
+Codex, Claude Code 및 다른 코딩 에이전트는 루트의 `AGENTS.md`와 `CLAUDE.md`를 통해 동일한 저장소 규칙을 사용합니다. 브랜치, 커밋, Push, PR 기준은 [LLM 공통 Git·Commit·Push·PR 전략](./docs/LLM_GIT_WORKFLOW.md)에 정리되어 있으며, `/pr` 요청은 [공용 PR 스킬](./skills/pr/SKILL.md)의 검증·점수화·Critical 차단 절차를 따릅니다.
+
 ## 라이선스
 
 [MIT License](./LICENSE)
