@@ -28,4 +28,4 @@ IDE 설정, Codex 로컬 설정, 빌드 결과, 환경 변수 파일, 키 및 �
 
 ## 라이선스
 
-[Apache License 2.0](./LICENSE)
+[MIT License](./LICENSE)
