@@ -14,6 +14,7 @@ Kotlin 문법을 외우는 데서 끝내지 않고, 작성한 코드가 JVM에�
 | 4 | [Heap, 객체와 참조](./docs/04_HEAP_REFERENCES.md) | `val`, `==`, `===`, `copy()`는 메모리 관점에서 무엇이 다른가? | M06~M10 |
 | 5 | [객체 수명과 GC](./docs/05_GC_AND_LIFETIME.md) | scope가 끝나는 것과 객체가 회수 가능한 것은 같은가? | M11~M12 |
 | 6 | [스레드와 Java Memory Model](./docs/06_THREADS_AND_MEMORY.md) | 스레드별 Stack과 공유 Heap은 왜 race condition을 만드는가? | M13~M15 |
+| 7 | [코루틴과 JVM 메모리 실전](./docs/07_COROUTINES_AND_MEMORY.md) | 중단 상태는 무엇을 보존하며 StackOverflow·누수·OOM을 어떻게 피하는가? | 실전 사례 |
 
 전체 문제 목록과 실행법은 [problems/README.md](./problems/README.md)를 참고합니다.
 
