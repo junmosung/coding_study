@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Kotlin 소스에서 JVM 실행까지</title><desc id="desc">Kotlin 소스가 compiler를 거쳐 class bytecode가 되고 class loading과 JIT를 통해 JVM에서 실행되는 과정</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#475569"/></marker><filter id="s"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity=".12"/></filter></defs>
+  <rect width="1200" height="620" rx="24" fill="#f8fafc"/><text x="55" y="58" font-family="sans-serif" font-size="29" font-weight="700" fill="#0f172a">Kotlin/JVM 실행 파이프라인</text><text x="55" y="88" font-family="sans-serif" font-size="15" fill="#64748b">소스 문법은 bytecode로 변환되고, JVM은 필요에 따라 해석하거나 JIT compile합니다.</text>
+  <g font-family="sans-serif" text-anchor="middle" filter="url(#s)">
+    <g><rect x="58" y="180" width="190" height="125" rx="18" fill="#ede9fe" stroke="#8b5cf6"/><text x="153" y="219" font-size="19" font-weight="700" fill="#4c1d95">Kotlin source</text><text x="153" y="251" font-size="15" fill="#6d28d9">.kt</text><text x="153" y="278" font-size="13" fill="#6d28d9">val · fun · class</text></g>
+    <g><rect x="322" y="180" width="190" height="125" rx="18" fill="#dbeafe" stroke="#3b82f6"/><text x="417" y="219" font-size="19" font-weight="700" fill="#1e3a8a">Kotlin compiler</text><text x="417" y="251" font-size="15" fill="#1d4ed8">타입 검사 · 변환</text><text x="417" y="278" font-size="13" fill="#1d4ed8">kotlinc</text></g>
+    <g><rect x="586" y="180" width="190" height="125" rx="18" fill="#e0f2fe" stroke="#0ea5e9"/><text x="681" y="219" font-size="19" font-weight="700" fill="#0c4a6e">JVM bytecode</text><text x="681" y="251" font-size="15" fill="#0369a1">.class / .jar</text><text x="681" y="278" font-size="13" fill="#0369a1">constant pool · methods</text></g>
+    <g><rect x="850" y="180" width="292" height="125" rx="18" fill="#dcfce7" stroke="#22c55e"/><text x="996" y="215" font-size="19" font-weight="700" fill="#14532d">JVM 실행</text><text x="996" y="245" font-size="15" fill="#166534">load → link → initialize</text><text x="996" y="273" font-size="13" fill="#166534">interpreter + JIT compiled code</text></g>
+  </g>
+  <g fill="none" stroke="#475569" stroke-width="3" marker-end="url(#a)"><path d="M248 242h74"/><path d="M512 242h74"/><path d="M776 242h74"/></g>
+  <g font-family="sans-serif" text-anchor="middle"><rect x="184" y="390" width="832" height="112" rx="16" fill="#e2e8f0"/><text x="600" y="424" font-size="16" font-weight="700" fill="#334155">runtime에서 만나는 논리 영역</text><text x="600" y="456" font-size="15" fill="#475569">스레드별 pc register · JVM Stack frame</text><text x="600" y="485" font-size="15" fill="#475569">공유 Heap · Method Area · Runtime Constant Pool</text></g>
+  <path d="M996 305v46c0 26-20 39-48 39" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="55" y="562" font-family="sans-serif" font-size="14" fill="#64748b">주의: bytecode 모양과 실제 native code·물리 메모리 배치는 같지 않을 수 있습니다.</text>
+</svg>
