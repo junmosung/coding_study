@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="620" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title">메인 스레드와 워커 스레드 실행 흐름</title>
+  <desc id="desc">JVM이 메인 스레드에서 시작되고 두 워커 스레드를 생성한 뒤 join으로 완료를 기다리고 종료하는 시간 흐름도</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity=".12"/></filter>
+  </defs>
+  <rect width="1120" height="620" rx="24" fill="#f8fafc"/>
+  <text x="56" y="58" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">메인 스레드와 워커 스레드의 분기·합류</text>
+  <text x="56" y="88" font-family="sans-serif" font-size="15" fill="#64748b">왼쪽에서 오른쪽으로 시간이 흐릅니다. start()는 작업을 위임하고, join()은 완료 시점까지 기다립니다.</text>
+
+  <g font-family="sans-serif" font-size="17" font-weight="700" fill="#0f172a">
+    <text x="58" y="164">main</text><text x="58" y="304">worker-1</text><text x="58" y="444">worker-2</text>
+  </g>
+  <g stroke="#cbd5e1" stroke-width="3" stroke-linecap="round">
+    <path d="M170 158 H1050"/><path d="M170 298 H1050"/><path d="M170 438 H1050"/>
+  </g>
+
+  <g filter="url(#shadow)" font-family="sans-serif" text-anchor="middle">
+    <rect x="188" y="124" width="130" height="68" rx="12" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="253" y="151" font-size="16" font-weight="700" fill="#1e3a8a">main() 시작</text><text x="253" y="174" font-size="13" fill="#1d4ed8">JVM 진입점</text>
+    <rect x="360" y="124" width="142" height="68" rx="12" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="431" y="151" font-size="16" font-weight="700" fill="#1e3a8a">start() × 2</text><text x="431" y="174" font-size="13" fill="#1d4ed8">워커 실행 요청</text>
+    <rect x="640" y="124" width="138" height="68" rx="12" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="709" y="151" font-size="16" font-weight="700" fill="#78350f">join() 대기</text><text x="709" y="174" font-size="13" fill="#92400e">main은 WAITING</text>
+    <rect x="888" y="124" width="142" height="68" rx="12" fill="#dcfce7" stroke="#4ade80"/>
+    <text x="959" y="151" font-size="16" font-weight="700" fill="#14532d">결과 처리</text><text x="959" y="174" font-size="13" fill="#166534">프로세스 종료</text>
+
+    <rect x="490" y="264" width="258" height="68" rx="12" fill="#ede9fe" stroke="#a78bfa"/>
+    <text x="619" y="291" font-size="16" font-weight="700" fill="#4c1d95">작업 A 실행</text><text x="619" y="314" font-size="13" fill="#6d28d9">독립 호출 스택 · OS 스케줄링</text>
+    <rect x="534" y="404" width="310" height="68" rx="12" fill="#fce7f3" stroke="#f472b6"/>
+    <text x="689" y="431" font-size="16" font-weight="700" fill="#831843">작업 B 실행</text><text x="689" y="454" font-size="13" fill="#9d174d">실행 순서는 매번 달라질 수 있음</text>
+  </g>
+
+  <g fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M502 146 C525 146 500 298 490 298"/><path d="M502 170 C555 170 546 438 534 438"/>
+    <path d="M748 298 C820 298 802 158 888 158"/><path d="M844 438 C904 438 842 184 888 174"/>
+  </g>
+  <g font-family="sans-serif" font-size="13" fill="#475569">
+    <text x="502" y="226">새 실행 경로 생성</text><text x="793" y="278">완료 신호</text><text x="852" y="392">완료 신호</text>
+  </g>
+  <rect x="56" y="526" width="1008" height="58" rx="12" fill="#e2e8f0"/>
+  <text x="78" y="551" font-family="sans-serif" font-size="14" font-weight="700" fill="#334155">핵심</text>
+  <text x="126" y="551" font-family="sans-serif" font-size="14" fill="#334155">start() 직후 main과 worker는 동시에 진행할 수 있습니다.</text>
+  <text x="126" y="573" font-family="sans-serif" font-size="14" fill="#334155">공유 상태가 있다면 실행 순서를 가정하지 말고 동기화하거나 상태 자체를 공유하지 않아야 합니다.</text>
+</svg>

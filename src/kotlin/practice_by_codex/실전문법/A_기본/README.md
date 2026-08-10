@@ -1,0 +1,14 @@
+# A · 기본 — 함수 API와 실패 처리
+
+| 순서 | 문제 | 구현 산출물 | 검증 관점 |
+|---:|---|---|---|
+| C31 | [탐사 옵션 생성](./C31MissionOptions.kt) | 기본 인수 함수와 옵션 데이터 클래스 | 위치 인수와 이름 있는 인수 호출 비교 |
+| C32 | [주파수 일괄 등록](./C32RegisterFrequencies.kt) | `vararg`를 받는 등록 함수 | 빈 인수, 중복, 배열 스프레드 테스트 |
+| C33 | [좌표 구조 분해](./C33CoordinateDestructuring.kt) | `Coordinate3D`와 거리 계산 함수 | component 순서와 타입 확인 |
+| C34 | [발사 조건 검증](./C34LaunchValidation.kt) | 인수·상태 검증 함수 | 예외 타입과 메시지 지연 평가 확인 |
+| C35 | [안전한 계산 결과](./C35SafeCalculation.kt) | `Result<Int>` 계산 API | 성공값과 실패 원인 모두 검증 |
+| C36 | [통신 예외 분류](./C36CommunicationExceptions.kt) | 사용자 예외와 메시지 변환기 | `finally`가 모든 경로에서 실행되는지 확인 |
+| C37 | [지연 초기화 지도](./C37LazyPlanetMap.kt) | `lazy` 프로퍼티 보유 객체 | 최초 접근 전후 생성 횟수 확인 |
+| C38 | [장비 연결 상태](./C38EquipmentConnection.kt) | `lateinit` 장비 프로퍼티 | 초기화 전 접근과 연결 여부 구분 |
+
+완료 후에는 “nullable, 예외, Result 중 무엇을 선택할지”를 사례별로 설명합니다.

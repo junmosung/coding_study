@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650" role="img" aria-labelledby="title desc">
+  <title id="title">코루틴의 중단과 스레드 전환</title>
+  <desc id="desc">메인 스레드에서 시작한 코루틴이 IO 디스패처 워커에서 블로킹 작업을 하고 다시 메인으로 돌아오는 흐름</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#475569"/></marker></defs>
+  <rect width="1120" height="650" rx="24" fill="#f8fafc"/>
+  <text x="56" y="58" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">하나의 코루틴, 여러 실행 스레드</text>
+  <text x="56" y="88" font-family="sans-serif" font-size="15" fill="#64748b">코루틴의 논리적 흐름은 유지되지만 중단 전후의 실제 스레드는 디스패처에 따라 달라질 수 있습니다.</text>
+  <g font-family="sans-serif" font-size="16" font-weight="700" fill="#0f172a"><text x="56" y="166">Main thread</text><text x="56" y="306">IO worker-1</text><text x="56" y="446">IO worker-2</text></g>
+  <g stroke="#cbd5e1" stroke-width="3"><path d="M190 160H1050"/><path d="M190 300H1050"/><path d="M190 440H1050"/></g>
+  <g font-family="sans-serif" text-anchor="middle">
+    <g><rect x="208" y="126" width="150" height="68" rx="12" fill="#dbeafe" stroke="#60a5fa"/><text x="283" y="153" font-size="16" font-weight="700" fill="#1e3a8a">코루틴 시작</text><text x="283" y="176" font-size="13" fill="#1d4ed8">화면 상태 읽기</text></g>
+    <g><rect x="438" y="266" width="198" height="68" rx="12" fill="#ede9fe" stroke="#a78bfa"/><text x="537" y="293" font-size="16" font-weight="700" fill="#4c1d95">withContext(IO)</text><text x="537" y="316" font-size="13" fill="#6d28d9">블로킹 I/O 실행</text></g>
+    <g><rect x="672" y="406" width="176" height="68" rx="12" fill="#fce7f3" stroke="#f472b6"/><text x="760" y="433" font-size="16" font-weight="700" fill="#831843">중단 후 재개</text><text x="760" y="456" font-size="13" fill="#9d174d">다른 워커 가능</text></g>
+    <g><rect x="884" y="126" width="150" height="68" rx="12" fill="#dcfce7" stroke="#4ade80"/><text x="959" y="153" font-size="16" font-weight="700" fill="#14532d">Main 복귀</text><text x="959" y="176" font-size="13" fill="#166534">화면 상태 갱신</text></g>
+  </g>
+  <g fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"><path d="M358 160C400 160 394 300 438 300"/><path d="M636 300C675 300 632 440 672 440"/><path d="M848 440C888 440 842 160 884 160"/></g>
+  <g font-family="sans-serif" font-size="13" fill="#475569"><text x="368" y="224">문맥 전환</text><text x="634" y="370">suspend 지점</text><text x="832" y="302">결과 전달</text></g>
+  <rect x="56" y="518" width="1008" height="82" rx="12" fill="#e2e8f0"/>
+  <text x="78" y="547" font-family="sans-serif" font-size="14" font-weight="700" fill="#334155">구분</text>
+  <text x="126" y="547" font-family="sans-serif" font-size="14" fill="#334155">중단(suspension)은 스레드를 점유하지 않고 나중에 계속할 수 있도록 코루틴 상태를 저장합니다.</text>
+  <text x="126" y="572" font-family="sans-serif" font-size="14" fill="#334155">블로킹(blocking)은 호출이 끝날 때까지 현재 스레드를 점유합니다. 블로킹 I/O는 Dispatchers.IO로 격리합니다.</text>
+</svg>

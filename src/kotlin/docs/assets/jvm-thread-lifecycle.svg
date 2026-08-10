@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650" role="img" aria-labelledby="title desc">
+  <title id="title">JVM 스레드 생명주기</title>
+  <desc id="desc">NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING, TERMINATED 상태와 주요 전이</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0v6l9-3z" fill="#475569"/></marker></defs>
+  <rect width="1120" height="650" rx="24" fill="#f8fafc"/>
+  <text x="56" y="58" font-family="sans-serif" font-size="28" font-weight="700" fill="#0f172a">JVM 스레드 상태 전이</text>
+  <text x="56" y="88" font-family="sans-serif" font-size="15" fill="#64748b">RUNNABLE은 JVM 관점에서 실행 중과 실행 준비 상태를 모두 포함합니다.</text>
+  <g font-family="sans-serif" text-anchor="middle">
+    <g><rect x="55" y="250" width="150" height="82" rx="18" fill="#e2e8f0" stroke="#94a3b8"/><text x="130" y="284" font-size="18" font-weight="700" fill="#334155">NEW</text><text x="130" y="309" font-size="13" fill="#475569">생성, 시작 전</text></g>
+    <g><rect x="308" y="250" width="180" height="82" rx="18" fill="#dbeafe" stroke="#60a5fa"/><text x="398" y="284" font-size="18" font-weight="700" fill="#1e3a8a">RUNNABLE</text><text x="398" y="309" font-size="13" fill="#1d4ed8">실행 중 / 준비</text></g>
+    <g><rect x="605" y="120" width="190" height="82" rx="18" fill="#fee2e2" stroke="#f87171"/><text x="700" y="154" font-size="18" font-weight="700" fill="#7f1d1d">BLOCKED</text><text x="700" y="179" font-size="13" fill="#991b1b">monitor lock 대기</text></g>
+    <g><rect x="605" y="250" width="190" height="82" rx="18" fill="#fef3c7" stroke="#f59e0b"/><text x="700" y="284" font-size="18" font-weight="700" fill="#78350f">WAITING</text><text x="700" y="309" font-size="13" fill="#92400e">기한 없는 대기</text></g>
+    <g><rect x="605" y="380" width="190" height="82" rx="18" fill="#fae8ff" stroke="#d946ef"/><text x="700" y="414" font-size="18" font-weight="700" fill="#701a75">TIMED_WAITING</text><text x="700" y="439" font-size="13" fill="#86198f">기한 있는 대기</text></g>
+    <g><rect x="915" y="250" width="160" height="82" rx="18" fill="#dcfce7" stroke="#4ade80"/><text x="995" y="284" font-size="18" font-weight="700" fill="#14532d">TERMINATED</text><text x="995" y="309" font-size="13" fill="#166534">run() 종료</text></g>
+  </g>
+  <g fill="none" stroke="#475569" stroke-width="2.4" marker-end="url(#a)">
+    <path d="M205 291H308"/><path d="M488 275C535 230 548 161 605 161"/><path d="M605 182C550 214 538 257 488 280"/>
+    <path d="M488 291H605"/><path d="M605 313H488"/><path d="M488 308C535 350 548 421 605 421"/><path d="M605 400C550 365 538 327 488 302"/>
+    <path d="M450 332V500H995V332"/>
+  </g>
+  <g font-family="sans-serif" font-size="13" fill="#475569" text-anchor="middle">
+    <text x="256" y="278">start()</text><text x="548" y="171">lock 경쟁</text><text x="542" y="231">lock 획득</text>
+    <text x="548" y="278">wait / join</text><text x="548" y="330">notify / 완료</text><text x="548" y="400">sleep / timeout</text><text x="545" y="372">시간 경과</text><text x="850" y="490">run() 정상/예외 종료</text>
+  </g>
+  <rect x="56" y="536" width="1008" height="82" rx="12" fill="#e2e8f0"/>
+  <text x="78" y="565" font-family="sans-serif" font-size="14" font-weight="700" fill="#334155">주의</text>
+  <text x="126" y="565" font-family="sans-serif" font-size="14" fill="#334155">Thread.State는 관찰 시점의 스냅샷입니다. 상태만으로 교착 상태나 성능 원인을 확정할 수 없습니다.</text>
+  <text x="126" y="590" font-family="sans-serif" font-size="14" fill="#334155">interrupt()는 강제 종료가 아니라 협력적 중단 요청이며, 대상 코드가 인터럽트를 처리해야 합니다.</text>
+</svg>
