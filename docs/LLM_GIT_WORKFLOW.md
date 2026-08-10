@@ -36,6 +36,21 @@ git switch -c feat/short-description
 
 작업 트리가 깨끗하지 않다면 기존 변경의 소유자와 목적부터 확인합니다. 임의로 `reset`, `checkout`, `clean`, stash를 실행하지 않습니다.
 
+### Fast-forward 및 worktree 재발 방지
+
+- 대상 브랜치 동기화에는 항상 명령 자체에 `--ff-only`를 지정합니다. 사용자 전역 설정은 환경마다 다르므로 안전 정책으로 간주하지 않습니다.
+- `git merge origin/main`이나 옵션 없는 `git pull`은 동기화 명령으로 사용하지 않습니다. 전역 `merge.ff=false`가 설정된 환경에서는 fast-forward 가능한 관계에도 불필요한 merge commit이 생길 수 있습니다.
+- 동기화 전후에 `git rev-list --left-right --count main...origin/main`을 실행해 divergence가 예상과 일치하는지 확인합니다.
+- 저장소별 기본 안전 설정이 필요하면 다음을 사용할 수 있습니다.
+
+```bash
+git config --local merge.ff only
+git config --local pull.ff only
+```
+
+- PR 변경은 가능하면 처음부터 격리 worktree에서 작성합니다. primary worktree에서 만든 미추적 파일을 복사했다면 원본이 자동으로 추적·삭제되지 않는다는 사실을 기록합니다.
+- PR push 또는 병합 뒤에는 primary worktree의 `git status --short --branch`를 다시 확인합니다. 원격에 이미 병합된 파일이 미추적으로 남아 있어도 먼저 원격 파일과 byte 단위로 비교하고, 삭제·이동·reset은 사용자 승인과 복구 수단을 확보한 뒤 수행합니다.
+
 ## 4. 커밋 전 점검
 
 최소한 다음 항목을 확인합니다.
@@ -122,6 +137,7 @@ Draft PR은 설계 피드백이나 중간 공유가 필요할 때 사용합니�
 - 리뷰 의견은 별도의 작은 커밋으로 반영해 검토 흐름을 보존할 수 있습니다.
 - PR 완료 후에는 저장소가 정한 병합 방식을 따릅니다. 별도 규칙이 없다면 학습 저장소의 단순한 이력을 위해 squash merge를 권장합니다.
 - 병합 후 원격 브랜치를 삭제하고 로컬 `main`을 `--ff-only`로 갱신합니다.
+- 갱신 후 `git rev-list --left-right --count main...origin/main`이 `0 0`인지, primary worktree에 PR로 옮긴 파일의 미추적 복제본이 남지 않았는지 확인합니다.
 - 에이전트는 사용자 승인 없이 PR 병합이나 브랜치 삭제를 수행하지 않습니다.
 
 ## 9. `main` 직접 Push 예외

@@ -26,6 +26,8 @@
 
 - Git 상태를 바꾸기 전에 [공통 Git/PR 워크플로](docs/LLM_GIT_WORKFLOW.md)를 읽고 따릅니다.
 - 사용자가 `/pr`, `$pr` 또는 PR 생성을 요청하면 [공용 PR 스킬](skills/pr/SKILL.md)을 읽고 Critical 차단 게이트를 적용합니다.
+- 대상 브랜치 동기화에는 명령에 `--ff-only`를 직접 지정합니다. 사용자 전역 `merge.ff` 설정을 신뢰하거나 `git merge origin/main`, 옵션 없는 `git pull`로 동기화하지 않습니다.
+- 변경을 격리 worktree로 옮겼다면 primary worktree에 같은 미추적 파일이 남았는지 완료 시 확인하고 보고합니다. 검증 없이 삭제·stash·reset하지 않습니다.
 - 사용자의 명시적인 요청 없이 커밋, 푸시, PR 생성, 브랜치 삭제를 하지 않습니다.
 - `main` 직접 푸시는 사용자가 명시적으로 요청한 초기 설정 또는 예외 상황에만 허용합니다.
 
