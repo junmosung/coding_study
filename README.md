@@ -17,7 +17,15 @@
 
 ## 실행
 
-IntelliJ IDEA에서 원하는 `.kt` 파일의 `main` 함수를 실행합니다. Kotlin CLI가 설치되어 있다면 다음처럼 개별 파일을 컴파일할 수도 있습니다.
+IntelliJ IDEA에서 저장소 루트를 열면 Gradle 설정을 읽어 SDK, 소스 루트, 의존성을 자동으로 구성합니다. 이후 원하는 `.kt` 파일의 `main` 함수를 실행합니다.
+
+전체 소스 컴파일은 Gradle wrapper로 수행하며, Gradle을 따로 설치할 필요는 없습니다.
+
+```bash
+./gradlew build
+```
+
+Kotlin CLI가 설치되어 있다면 다음처럼 개별 파일만 따로 컴파일할 수도 있습니다.
 
 ```bash
 kotlinc src/kotlin/practice_by_claude/Practice01.kt -include-runtime -d practice01.jar
