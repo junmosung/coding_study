@@ -10,6 +10,8 @@ out/
 .gradle/
 build/
 *.jar
+# Gradle wrapper jar 는 다른 환경에서 ./gradlew 가 동작하려면 반드시 추적해야 합니다.
+!gradle/wrapper/gradle-wrapper.jar
 
 ### Local tools ###
 .codex/
